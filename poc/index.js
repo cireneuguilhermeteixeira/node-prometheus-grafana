@@ -9,6 +9,7 @@ const register = new client.Registry();
 register.setDefaultLabels({
   app: "prometheus-node-poc",
 });
+
 client.collectDefaultMetrics({ register });
 
 // Http request counter
