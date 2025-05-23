@@ -1,8 +1,17 @@
 const express = require("express");
 const client = require("prom-client");
+const http = require('http');
+// const appmetricsPrometheus = require('appmetrics-prometheus');
+const dash = require('appmetrics-dash');
 
 const app = express();
-const port = 3000;
+const server = http.createServer(app);
+
+
+dash.monitor({ server });
+
+// appmetricsPrometheus.attach(app); 
+const port = 3001;
 
 // Create a default register
 const register = new client.Registry();
@@ -39,10 +48,11 @@ app.get("/", (req, res) => {
 // Metric Routes do Prometheus
 app.get("/metrics", async (req, res) => {
   res.set("Content-Type", register.contentType);
+
   res.end(await register.metrics());
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running in http://localhost:${port}`);
   console.log(`Metrics running in http://localhost:${port}/metrics`);
 });
