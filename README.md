@@ -18,11 +18,19 @@ http_requests_total
 Install Grafana via Docker, expose the port so it can communicate with Prometheus
 configure in Grafana informing the Prometheus url
 
+![image](https://github.com/user-attachments/assets/dd1762e2-8453-4086-a2a8-7d8d4d96bf78)
+
+![image](https://github.com/user-attachments/assets/5edca576-09af-40a6-9791-836e96c5469e)
+
+
+
 # Integration with appmetrics
 Installation of the metrics app and the appmetrics-dash
 dashboard can be visible at the url
-
 http://localhost:3001/appmetrics-dash/
+
+![image](https://github.com/user-attachments/assets/8d4ed723-40a8-4a46-a48a-625bd1aae7e6)
+
 
 # Tradeoffs between appmetrics/prom-client
 
